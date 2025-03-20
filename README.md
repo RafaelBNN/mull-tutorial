@@ -36,7 +36,7 @@ Date: 01 Mar 2025
 LLVM: 18.1.3
 ```
 
-### Hello World
+### Testando o `mull-runner-18`
 Está tudo pronto para rodar o Mull! Para seguir com o tutorial, clone este repositório e navegue até ele usando:
 
 ```
@@ -65,13 +65,17 @@ $ mull-runner-18 ./conditional_calculator
 [info] Total execution time: 144ms
 ```
 
-Perceba que, por enquanto, não foram encontrados mutantes no nosso programa. Isso é porque precisamos dizer explicitamente para o `clang` que queremos inseri-los utilizando o Mull. Podemos fazer isso compilando da seguinte maneira:
+Perceba que, por enquanto, não foram encontrados mutantes no nosso programa. Isso é porque precisamos dizer explicitamente para o `clang` que queremos inseri-los utilizando o Mull. Vamos fazer isso agora.
+
+### Inserindo mutantes com o `clang`
+
+Podemos inserir mutantes no nosso programa compilando-o com algumas flags adicionais:
 
 ```
 clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator.c -o conditional_calculator
 ```
 
-Agora podemos rodar o Mull novamente e vamos ter o seguinte resultado:
+Agora podemos rodar o Mull novamente e vamos obter o seguinte resultado:
 
 ```
 $ mull-runner-18 ./conditional_calculator
@@ -104,7 +108,7 @@ $ mull-runner-18 ./conditional_calculator
 
 Foram criados 4 mutantes! Porém, como temos apenas a função `compute()` e nenhum teste, todos eles sobreviveram. E, já que estamos usando testes de mutação, nosso objetivo é justamente testar a qualidade da nossa **suíte de testes**.
 
-Dessa forma, o arquivo `conditional_calculator_with_tests.c` contém uma cópia do método `compute()` e alguns testes na própria `main()`. Eles serão suficientes para um exemplo simples.
+Dessa forma, o arquivo `conditional_calculator_with_tests.c` contém uma cópia do método `compute()` e alguns testes na própria `main()`. Eles serão suficientes para este exemplo.
 
 Assim, compilando o arquivo `conditional_calculator_with_tests.c` e inserindo mutantes:
 
@@ -137,9 +141,11 @@ $ mull-runner-18 ./conditional_calculator_with_tests
 [info] Surviving mutants: 2
 ```
 
-Percebemos que 2 dos mutantes sobreviveram, e o Mull nos diz quais foram. Dessa forma, podemos identificar onde ocorreram os erros e melhorar nossa suíte de testes. O arquivo `conditional_calculator_with_tests_improved.c` adiciona dois novos casos de teste.
+Percebemos que conseguimos matar alguns dos mutantes! Ainda assim, 2 deles sobreviveram, e o Mull nos diz quais foram. Dessa forma, podemos identificar onde ocorreram os erros e melhorar nossa suíte de testes. O arquivo `conditional_calculator_with_tests_improved.c` adiciona dois novos casos de teste.
 
-E aí:
+### Melhorando a suíte
+
+Compilando e rodando o `conditional_calculator_with_tests_improved.c`, temos:
 
 ```
 $ clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator_with_tests_improved.c -o conditional_calculator_with_tests_improved
@@ -160,7 +166,7 @@ $ mull-runner-18 ./conditional_calculator_with_tests_improved
 [info] Total execution time: 286ms
 ```
 
-Vimos que conseguimos matar todos os mutantes.
+Assim, vimos que conseguimos matar todos os mutantes!
 
 ## Conclusão
 
