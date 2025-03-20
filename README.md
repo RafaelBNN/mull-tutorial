@@ -10,7 +10,7 @@ Para este tutorial, é necessário ter o compilador `clang` instalado. O sistema
 O Mull não está disponível nos gerenciadores de pacote padrão do Ubuntu. Então, para adicioná-lo, precisamos fazer:
 
 ```
-$ curl -1sLf 'https://dl.cloudsmith.io/public/mull-project/mull-stable/setup.deb.sh' | sudo -E bash
+curl -1sLf 'https://dl.cloudsmith.io/public/mull-project/mull-stable/setup.deb.sh' | sudo -E bash
 ```
 
 Em seguida, para instalar a versão estável mais recente do Mull:
@@ -45,7 +45,7 @@ $ cd mull-tutorial
 Agora, para ver o `mull-runner-18` funcionando, precisamos apenas e simplesmente de um arquivo binário. Por agora, vamos compilar o `conditional_calculator.c` e ver o que acontece:
 
 ```
-$ clang conditional_calculator.c -o conditional_calculator
+clang conditional_calculator.c -o conditional_calculator
 ```
 
 Será criado um arquivo binário `conditional_calculator` na pasta raiz. Agora, podemos fazer:
@@ -66,7 +66,7 @@ $ mull-runner-18 ./conditional_calculator
 Perceba que, por enquanto, não foram encontrados mutantes no nosso programa. Isso é porque precisamos dizer explicitamente para o `clang` que queremos inseri-los utilizando o Mull. Podemos fazer isso compilando da seguinte maneira:
 
 ```
-$ clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator.c -o conditional_calculator
+clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator.c -o conditional_calculator
 ```
 
 Agora podemos rodar o Mull novamente e vamos ter o seguinte resultado:
@@ -107,7 +107,7 @@ Dessa forma, o arquivo `conditional_calculator_with_tests.c` contém uma cópia 
 Assim, compilando o arquivo `conditional_calculator_with_tests.c` e inserindo mutantes:
 
 ```
-$ clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator_with_tests.c -o conditional_calculator_with_tests
+clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator_with_tests.c -o conditional_calculator_with_tests
 ```
 
 Rodando com o `mull-runner-18`:
