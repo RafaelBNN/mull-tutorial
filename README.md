@@ -67,7 +67,6 @@ Perceba que, por enquanto, não foram encontrados mutantes no nosso programa. Is
 
 ```
 $ clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator.c -o conditional_calculator
-[warning] Mull cannot find config (mull.yml). Using some defaults.
 ```
 
 Agora podemos rodar o Mull novamente e vamos ter o seguinte resultado:
@@ -109,7 +108,6 @@ Assim, compilando o arquivo `conditional_calculator_with_tests.c` e inserindo mu
 
 ```
 $ clang -fpass-plugin=/usr/lib/mull-ir-frontend-18 -g -grecord-command-line conditional_calculator_with_tests.c -o conditional_calculator_with_tests
-[warning] Mull cannot find config (mull.yml). Using some defaults.
 ```
 
 Rodando com o `mull-runner-18`:
