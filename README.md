@@ -162,6 +162,6 @@ Vimos que conseguimos matar todos os mutantes.
 
 ## Conclusão
 
-Dessa forma, podemos ver, com um exemplo simples, como podemos realizar testes de mutação usando o Mull. O Mull ainda permite a configuração dos mutantes criados (por exemplo, poderíamos incluir um mutante para alterar o `'+'` para `'*'`, `'-'` para `'/'`, trocar variáveis por constantes, etc. 
+Dessa forma, pudemos ver, com um exemplo simples, como podemos realizar testes de mutação usando o Mull. O Mull ainda permite configurar os [operadores de mutação](https://mull.readthedocs.io/en/0.24.0/MullConfig.html) (por exemplo, poderíamos incluir um mutante para alterar o `'+'` para `'*'`, `'-'` para `'/'`, trocar variáveis por constantes, etc.) para a criação dos mutantes. 
 
 Isso mostra que o Mull é uma ferramenta poderosa para avaliar nossas suítes de testes, identificando pontos fracos e incentivando melhorias. Com essa ferramenta, garantimos não apenas a cobertura do código, mas também que os nossos testes correspondem perfeitamente ao nosso programa.
