@@ -3,6 +3,8 @@ O [Mull](https://github.com/mull-project/mull?tab=readme-ov-file) é uma ferrame
 
 ## Tutorial
 
+[Link para o vídeo deste tutorial](https://www.youtube.com/watch?v=qEYjSFsr7Rs)
+
 ### Dependências
 Para este tutorial, é necessário ter o compilador `clang` instalado. O sistema operacional utilizado para testar o tutorial foi o Ubuntu 24.04.2 LTS.
 
